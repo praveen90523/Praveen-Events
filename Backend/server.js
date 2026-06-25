@@ -103,6 +103,11 @@ app.get("/", (req, res) => {
   res.send("Praveen Events Full-Stack API is running...");
 });
 
+// Favicon handler to prevent noisy 404 logs on Render
+app.get("/favicon.ico", (req, res) => {
+  res.status(204).end();
+});
+
 // 404 handler
 app.use((req, res, next) => {
   res.status(404);
