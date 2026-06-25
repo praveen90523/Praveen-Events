@@ -83,7 +83,7 @@ PraveenEvents/
    ```
 2. Check/create a `.env` file to set the API endpoint:
    ```env
-   VITE_API_URL=http://localhost:5000/api
+   VITE_API_URL=https://praveen-events.onrender.com
    ```
 3. Run the Vite development server:
    ```bash

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
-import { logout } from "../services/api";
+import { logout } from "../Services/api";
 
 const Navbar1 = () => {
   const navigate = useNavigate();

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { login } from "../services/api";
+import { login } from "../Services/api";
 
 const Login = () => {
   const navigate = useNavigate();

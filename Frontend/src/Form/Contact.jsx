@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { submitContact } from "../services/api";
+import { submitContact } from "../Services/api";
 
 const Contact = () => {
   const navigate = useNavigate();

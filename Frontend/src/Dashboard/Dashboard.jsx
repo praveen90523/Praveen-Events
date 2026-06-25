@@ -19,7 +19,7 @@ import {
   getGallery,
   uploadGalleryImage,
   deleteGalleryImage,
-} from "../services/api";
+} from "../Services/api";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 

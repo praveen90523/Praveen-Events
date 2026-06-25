@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getGallery } from "../services/api";
+import { getGallery } from "../Services/api";
 
 import img1 from "../Images/img1.png";
 import img2 from "../Images/img2.png";
