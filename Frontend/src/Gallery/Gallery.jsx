@@ -82,9 +82,12 @@ const Gallery = () => {
       return img;
     }
     if (img.startsWith("/uploads/")) {
+      const defaultBaseURL = import.meta.env.MODE === "development"
+        ? "http://localhost:5000"
+        : "https://praveenevents.onrender.com";
       const baseURL = import.meta.env.VITE_API_URL
         ? import.meta.env.VITE_API_URL.replace("/api", "")
-        : "http://localhost:5000";
+        : defaultBaseURL;
       return `${baseURL}${img}`;
     }
     return img;
