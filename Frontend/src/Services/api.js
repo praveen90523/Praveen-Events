@@ -3,7 +3,7 @@ import axios from "axios";
 const baseURL = import.meta.env.VITE_API_URL || 
   (import.meta.env.MODE === "development" 
     ? "http://localhost:5000/api" 
-    : "https://praveenevents.onrender.com/api");
+    : "https://praveen-events.onrender.com/api");
 
 const API = axios.create({
   baseURL,

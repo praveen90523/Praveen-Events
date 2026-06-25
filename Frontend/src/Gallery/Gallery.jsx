@@ -84,7 +84,7 @@ const Gallery = () => {
     if (img.startsWith("/uploads/")) {
       const defaultBaseURL = import.meta.env.MODE === "development"
         ? "http://localhost:5000"
-        : "https://praveenevents.onrender.com";
+        : "https://praveen-events.onrender.com";
       const baseURL = import.meta.env.VITE_API_URL
         ? import.meta.env.VITE_API_URL.replace("/api", "")
         : defaultBaseURL;
