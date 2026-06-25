@@ -35,6 +35,7 @@ app.use(helmet({
 // CORS Configuration
 const allowedOrigins = [
   process.env.FRONTEND_URL,
+  "https://praveenevents.onrender.com",
   "http://localhost:5173",
   "http://localhost:5174",
   "http://localhost:3000",
@@ -45,11 +46,11 @@ app.use(
   cors({
     origin: function (origin, callback) {
       if (!origin) return callback(null, true);
-      
+
       if (allowedOrigins.indexOf(origin) !== -1) {
         return callback(null, true);
       }
-      
+
       // Allow preview branches and direct deploys
       const isAllowedDomain =
         origin.endsWith(".vercel.app") ||
@@ -57,11 +58,11 @@ app.use(
         origin.endsWith(".render.com") ||
         origin.startsWith("http://localhost:") ||
         origin.startsWith("http://127.0.0.1:");
-        
+
       if (isAllowedDomain) {
         return callback(null, true);
       }
-      
+
       callback(new Error("Not allowed by CORS"));
     },
     credentials: true,
