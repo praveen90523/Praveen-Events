@@ -34,19 +34,35 @@ app.use(helmet({
 
 // CORS Configuration
 const allowedOrigins = [
-  process.env.FRONTEND_URL || "http://localhost:5173",
+  process.env.FRONTEND_URL,
+  "http://localhost:5173",
   "http://localhost:5174",
   "http://localhost:3000",
   "http://localhost:5000",
-];
+].filter(Boolean);
+
 app.use(
   cors({
     origin: function (origin, callback) {
-      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
+      if (!origin) return callback(null, true);
+      
+      if (allowedOrigins.indexOf(origin) !== -1) {
+        return callback(null, true);
       }
+      
+      // Allow preview branches and direct deploys
+      const isAllowedDomain =
+        origin.endsWith(".vercel.app") ||
+        origin.endsWith(".netlify.app") ||
+        origin.endsWith(".render.com") ||
+        origin.startsWith("http://localhost:") ||
+        origin.startsWith("http://127.0.0.1:");
+        
+      if (isAllowedDomain) {
+        return callback(null, true);
+      }
+      
+      callback(new Error("Not allowed by CORS"));
     },
     credentials: true,
   })
